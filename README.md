@@ -1,5 +1,8 @@
 # team03-w22-7pm-4
 
+Coverage:
+[![codecov](https://codecov.io/gh/ucsb-cs156-w22/team03-w22-7pm-4/branch/main/graph/badge.svg?token=TZsGJQH6Rd)](https://codecov.io/gh/ucsb-cs156-w22/team03-w22-7pm-4)
+
 Heroku links:
 * Production: https://w22-7pm-4-team03.herokuapp.com/
 * QA: https://w22-7pm-4-team03-qa.herokuapp.com/
