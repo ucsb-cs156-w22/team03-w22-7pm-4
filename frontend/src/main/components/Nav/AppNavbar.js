@@ -98,7 +98,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
               {
                 hasRole(currentUser, "ROLE_USER") && (
                   <NavDropdown title="Earthquakes" id="appnavbar-earthquakes-dropdown" data-testid="appnavbar-earthquakes-dropdown" >
-                    <NavDropdown.Item href="/earthquakes/list">List Earthquakes</NavDropdown.Item>
+                    <NavDropdown.Item href="/earthquakes/list">List</NavDropdown.Item>
                     {
                       hasRole(currentUser, "ROLE_ADMIN") && (
                         <NavDropdown.Item href="/earthquakes/retrieve" data-testid="appnavbar-earthquakes-create">Create</NavDropdown.Item>
