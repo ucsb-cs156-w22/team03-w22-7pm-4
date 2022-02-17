@@ -12,7 +12,7 @@ import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
 import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
 
 import EarthquakesIndexPage from "main/pages/Earthquakes/EarthquakesIndexPage";
-import EarthquakesCreatePage from "main/pages/Earthquakes/EarthquakesRetrievePage";
+import EarthquakesRetrievePage from "main/pages/Earthquakes/EarthquakesRetrievePage";
 import EarthquakesEditPage from "main/pages/Earthquakes/EarthquakesEditPage";
 
 
