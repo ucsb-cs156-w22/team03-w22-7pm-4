@@ -44,7 +44,7 @@ public class CollegiateSubredditController extends ApiController{
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/all")
     public Iterable<CollegiateSubreddit> allCollegiateSubreddits() {
-        loggingService.logMethod();
+        // loggingService.logMethod();
         Iterable<CollegiateSubreddit> collegiateSubreddits = collegiateSubredditRepository.findAll();
         return collegiateSubreddits;
     }
@@ -59,7 +59,7 @@ public class CollegiateSubredditController extends ApiController{
             @ApiParam("subreddit") @RequestParam String subreddit)
             //@ApiParam("done") @RequestParam Boolean done) 
             {
-        loggingService.logMethod();
+        // loggingService.logMethod();
 
         CollegiateSubreddit collegiateSubreddit = new CollegiateSubreddit();
         //collegiateSubreddit.setUser(currentUser.getUser());
@@ -102,7 +102,7 @@ public class CollegiateSubredditController extends ApiController{
 
     public ResponseEntity<String> getCollegiateSubredditById(
         @ApiParam("id") @RequestParam Long id) throws JsonProcessingException {
-        loggingService.logMethod();
+        // loggingService.logMethod();
         CollegiateSubredditOrError toe = new CollegiateSubredditOrError(id);
 
         toe = doesCollegiateSubredditExist(toe);
@@ -121,7 +121,7 @@ public class CollegiateSubredditController extends ApiController{
     public ResponseEntity<String> putCollegiateSubredditById(
             @ApiParam("id") @RequestParam Long id,
             @RequestBody @Valid CollegiateSubreddit incomingTodo) throws JsonProcessingException {
-        loggingService.logMethod();
+        // loggingService.logMethod();
 
         //CurrentUser currentUser = getCurrentUser();
         //User user = currentUser.getUser();
@@ -153,7 +153,7 @@ public class CollegiateSubredditController extends ApiController{
     @DeleteMapping("")
     public ResponseEntity<String> deleteCollegiateSubreddit(
             @ApiParam("id") @RequestParam Long id) {
-        loggingService.logMethod();
+        // loggingService.logMethod();
 
         CollegiateSubredditOrError toe = new CollegiateSubredditOrError(id);
 
