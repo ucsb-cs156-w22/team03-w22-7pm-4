@@ -3,8 +3,8 @@ const ucsbSubjectsFixtures = {
         "id": 1,
         "subjectCode": "CMPSC",
         "subjectTranslation": "Computer Science",
-        "deptCode": "UCSB",
-        "collegeCode": "CMPSC",
+        "deptCode": "CMPSC",
+        "collegeCode": "COE",
         "relatedDeptCode": "CMPSC",
         "inactive": false
     },
@@ -13,8 +13,8 @@ const ucsbSubjectsFixtures = {
             "id": 1,
             "subjectCode": "CMPSC",
             "subjectTranslation": "Computer Science",
-            "deptCode": "UCSB",
-            "collegeCode": "CMPSC",
+            "deptCode": "CMPSC",
+            "collegeCode": "COE",
             "relatedDeptCode": "CMPSC",
             "inactive": false
         },
@@ -23,7 +23,7 @@ const ucsbSubjectsFixtures = {
             "subjectCode": "PHYS",
             "subjectTranslation": "Physics",
             "deptCode": "PHYS",
-            "collegeCode": "UCSB",
+            "collegeCode": "L&S",
             "relatedDeptCode": "PHYS",
             "inactive": false
         },
@@ -32,7 +32,7 @@ const ucsbSubjectsFixtures = {
             "subjectCode": "PSTAT",
             "subjectTranslation": "Statistics & Applied Probability",
             "deptCode": "PSTAT",
-            "collegeCode": "UCSB",
+            "collegeCode": "L&S",
             "relatedDeptCode": "PSTAT",
             "inactive": false
         }
