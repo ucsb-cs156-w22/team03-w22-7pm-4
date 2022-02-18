@@ -10,32 +10,31 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-// we're using all the fields in the example, this is just here as a safeguard
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EarthquakeFeatureProperties {
-    private String mag;
+    private double mag;
     private String place;
-    private String time;
-    private String updated;
-    private String tz;
+    private long time;
+    private long updated;
+    private int tz;
     private String url;
     private String detail;
-    private String felt;
-    private String cdi;
-    private String mmi;
+    private int felt;
+    private double cdi;
+    private double mmi;
     private String alert;
     private String status;
-    private String tsunami;
-    private String sig;
+    private int tsunami;
+    private int sig;
     private String net;
     private String code;
     private String ids;
     private String sources;
     private String types;
-    private String nst;
-    private String dmin;
-    private String rms;
-    private String gap;
+    private int nst;
+    private double dmin;
+    private double rms;
+    private double gap;
     private String magType;
     private String type;
     private String title;
