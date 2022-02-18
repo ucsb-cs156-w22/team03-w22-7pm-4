@@ -1,14 +1,12 @@
-import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
+import React from 'react';
 
-export default function UCSBSubjectsIndexPage() {
-  return (
-    <BasicLayout>
-      <div className="pt-2">
-        <h1>UCSBSubjects</h1>
-        <p>
-          This is where the index page will go
-        </p>
-      </div>
-    </BasicLayout>
-  )
-}
+import UCSBSubjectsIndexPage from "main/pages/UCSBSubjects/UCSBSubjectsIndexPage";
+
+export default {
+    title: 'pages/UCSBSubjects/UCSBSubjectsIndexPage',
+    component: UCSBSubjectsIndexPage
+};
+
+const Template = () => <UCSBSubjectsIndexPage />;
+
+export const Default = Template.bind({});

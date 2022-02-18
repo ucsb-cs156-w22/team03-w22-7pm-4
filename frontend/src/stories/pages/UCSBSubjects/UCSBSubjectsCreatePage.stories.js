@@ -1,14 +1,12 @@
-import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
+import React from 'react';
 
-export default function UCSBSubjectsCreatePage() {
-  return (
-    <BasicLayout>
-      <div className="pt-2">
-        <h1>Create new UCSBSubjects</h1>
-        <p>
-          This is where the create page will go
-        </p>
-      </div>
-    </BasicLayout>
-  )
-}
+import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePage";
+
+export default {
+    title: 'pages/UCSBSubjects/UCSBSubjectsCreatePage',
+    component: UCSBSubjectsCreatePage
+};
+
+const Template = () => <UCSBSubjectsCreatePage />;
+
+export const Default = Template.bind({});
