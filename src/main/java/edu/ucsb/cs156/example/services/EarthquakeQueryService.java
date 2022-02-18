@@ -35,7 +35,7 @@ public class EarthquakeQueryService {
         restTemplate = restTemplateBuilder.build();
     }
 
-    public static final String ENDPOINT = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude={minMag}&maxradiuskm={distance}&latitude={latitude}&longitude={longitude}";
+    public static final String ENDPOINT = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude={minMagnitude}&maxradiuskm={distanceKm}&latitude={latitude}&longitude={longitude}";
 
     public Iterable<EarthquakeFeature> retrieveEarthquakes(String distanceKm, String minMagnitude) throws HttpClientErrorException, JsonProcessingException {
         log.info("distanceKm={}, minMagnitude={}", distanceKm, minMagnitude);
