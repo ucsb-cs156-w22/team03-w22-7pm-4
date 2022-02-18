@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EarthquakeFeatureCollection {
+public class EarthquakeFeatureListing {
     private String type;
     private EarthquakeFeatureCollectionMetadata metadata;
     private List<EarthquakeFeature> features;
