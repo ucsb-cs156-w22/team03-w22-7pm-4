@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EarthquakeFeatureListing {
     private String type;
-    private EarthquakeFeatureCollectionMetadata metadata;
+    private EarthquakeFeatureListingMetadata metadata;
     private List<EarthquakeFeature> features;
     // ignore bbox field
 }
