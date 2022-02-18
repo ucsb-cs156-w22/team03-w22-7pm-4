@@ -24,7 +24,7 @@ function EarthquakeForm({ distance_from_storke, min_magnitude, submitAction, but
                 <Form.Label htmlFor="distance">distance in km from Storke Tower</Form.Label>
                 <Form.Control
                     data-testid="EarthquakeForm-distance"
-                    id="distance"
+                    //id="distance"
                     type="text"
                     isInvalid={Boolean(errors.distance)}
                     //need to check that distance is a number below
@@ -41,7 +41,7 @@ function EarthquakeForm({ distance_from_storke, min_magnitude, submitAction, but
                 <Form.Label htmlFor="min_magnitude">minimum magnitude of an earthquake</Form.Label>
                 <Form.Control
                     data-testid="EarthquakeForm-min_magnitude"
-                    id="min_magnitude"
+                    //id="min_magnitude"
                     type="text"
                     isInvalid={Boolean(errors.min_magnitude)}
                     {...register("min_magnitude", {

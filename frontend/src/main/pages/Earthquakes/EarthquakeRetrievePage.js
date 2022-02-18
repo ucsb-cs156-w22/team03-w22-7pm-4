@@ -1,5 +1,5 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import UCSBDateForm from "main/components/Earthquakes/earthquakesForm";
+import EarthquakeForm from "main/components/Earthquakes/EarthquakeForm";
 import { Navigate } from 'react-router-dom'
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
@@ -19,7 +19,7 @@ export default function EarthquakesRetrievePage() {
     toast(`Searched for earthquakes within: ${earthquake.distance} km and with a magnitude of at least
     name: ${earthquake.min_magnitude}`);
   }
-  /*
+  
   const mutation = useBackendMutation(
     objectToAxiosParams,
      { onSuccess }, 
@@ -34,9 +34,9 @@ export default function EarthquakesRetrievePage() {
   }
 
   if (isSuccess) {
-    return <Navigate to="/ucsbdates/list" />
+    return <Navigate to="/earthquakes/retrieve" />
   }
-  */
+  
 
   return (
     <BasicLayout>
