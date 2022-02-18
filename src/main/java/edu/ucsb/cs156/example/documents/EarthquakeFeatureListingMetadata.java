@@ -10,13 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-// we're using all the fields in the example, this is just here as a safeguard
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EarthquakeFeatureListingMetadata {
-    private int generated;
+    private long generated;
     private String url;
     private String title;
-    private int status;
     private String api;
     private int count;
+    private int status;
 }

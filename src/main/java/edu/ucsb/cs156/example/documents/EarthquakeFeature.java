@@ -16,7 +16,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 // this is the type of the actual objects we'll be storing in the mongoDB collection
 @Document(collection = "earthquakes")
-// we're using all the fields in the example, this is just here as a safeguard
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EarthquakeFeature {
     @Id
