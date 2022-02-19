@@ -24,7 +24,7 @@ export default function EarthquakesRetrievePage() {
     objectToAxiosParams,
      { onSuccess }, 
      // Stryker disable next-line all : hard to set up test for caching
-     ["/api/ucsbdates/all"]
+     ["/api/earthquakes/retrieve"]
      );
 
   const { isSuccess } = mutation
