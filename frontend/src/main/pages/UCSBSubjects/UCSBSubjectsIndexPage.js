@@ -9,21 +9,19 @@ export default function UCSBSubjectsIndexPage() {
 
   const currentUser = useCurrentUser();
 
-  const{ data: subjects, error: _error, status: _status } = 
+  const { data: subjects, error: _error, status: _status } =
     useBackend(
       // Stryker disable next-line all : don't test internal caching of React Query
-      ["api/UCSBSubjects/all"],
-      { method: "GET", url: "api/UCSBSubjects/all" },
+      ["/api/UCSBSubjects/all"],
+      { method: "GET", url: "/api/UCSBSubjects/all" },
       []
-    )
+    );
 
   return (
     <BasicLayout>
       <div className="pt-2">
         <h1>UCSBSubjects</h1>
-        <p>
           <UCSBSubjectsTable subjects={subjects} currentUser={currentUser} />
-        </p>
       </div>
     </BasicLayout>
   )
