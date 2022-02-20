@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import UCSBSubjectsCreatePage from "main/pages/UCSBSubects/UCSBSubjectsCreatePage";
+import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
