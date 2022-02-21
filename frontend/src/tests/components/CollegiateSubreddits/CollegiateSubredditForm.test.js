@@ -23,6 +23,7 @@ describe("CollegiateSubredditForm tests", () => {
         await waitFor(() => expect(getByText(/School Name/)).toBeInTheDocument());
         await waitFor(() => expect(getByText(/Location/)).toBeInTheDocument());
         await waitFor(() => expect(getByText(/Subreddit Name/)).toBeInTheDocument());
+        await waitFor(() => expect(getByText(/Create/)).toBeInTheDocument());
     });
 
 
