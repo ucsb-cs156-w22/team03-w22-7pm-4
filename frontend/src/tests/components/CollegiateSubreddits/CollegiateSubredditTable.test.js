@@ -48,7 +48,7 @@ describe("UserTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBDatesTable dates={[]} currentUser={currentUser} />
+          <CollegiateSubredditsTable subreddits={[]} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
@@ -62,15 +62,15 @@ describe("UserTable tests", () => {
     const { getByText, getByTestId } = render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBDatesTable dates={ucsbDatesFixtures.threeDates} currentUser={currentUser} />
+          <CollegiateSubredditssTable subreddits={collegiateSubredditsFixtures.threeSubreddits} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
     );
 
-    const expectedHeaders = ["id", "QuarterYYYYQ", "Name", "Date"];
-    const expectedFields = ["id", "quarterYYYYQ", "name", "localDateTime"];
-    const testId = "UCSBDatesTable";
+    const expectedHeaders = ["id", "Name", "Location", "Subreddit"];
+    const expectedFields = ["id", "name", "location", "subreddit"];
+    const testId = "CollegiateSubredditsTable";
 
     expectedHeaders.forEach((headerText) => {
       const header = getByText(headerText);
@@ -102,20 +102,20 @@ describe("UserTable tests", () => {
     const { getByText, getByTestId } = render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBDatesTable dates={ucsbDatesFixtures.threeDates} currentUser={currentUser} />
+          <CollegiateSubredditsTable subreddits={collegiateSubredditssFixtures.threeSubreddits} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
     );
 
-    await waitFor(() => { expect(getByTestId(`UCSBDatesTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
+    await waitFor(() => { expect(getByTestId(`CollegiateSubredditsTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
 
-    const editButton = getByTestId(`UCSBDatesTable-cell-row-0-col-Edit-button`);
+    const editButton = getByTestId(`CollegiateSubredditsTable-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
     
     fireEvent.click(editButton);
 
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbdates/edit/1'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/collegiatesubreddits/edit/1'));
 
   });
 
