@@ -17,11 +17,11 @@ const Template = (args) => {
 export const Empty = Template.bind({});
 
 Empty.args = {
-    dates: []
+    subreddits: []
 };
 
 export const ThreeSubreddits = Template.bind({});
 
 ThreeSubreddits.args = {
-    dates: collegiateSubredditsFixtures.threeSubreddits
+    subreddits: collegiateSubredditsFixtures.threeSubreddits
 };
