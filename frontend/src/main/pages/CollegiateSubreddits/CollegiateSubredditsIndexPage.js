@@ -12,8 +12,8 @@ export default function CollegiateSubredditsIndexPage() {
   const { data: subreddits, error: _error, status: _status } =
     useBackend(
       // Stryker disable next-line all : don't test internal caching of React Query
-      ["/api/subreddits/all"],
-      { method: "GET", url: "/api/subreddits/all" },
+      ["/api/collegiateSubreddits/all"],
+      { method: "GET", url: "/api/collegiateSubreddits/all" },
       []
     );
 
