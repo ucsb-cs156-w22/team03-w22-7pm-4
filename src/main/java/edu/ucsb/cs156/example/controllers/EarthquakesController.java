@@ -50,8 +50,8 @@ public class EarthquakesController {
     }
 
     @PreAuthorize("hasRole('ROLE_USER')")
-    @ApiOperation(value = "List all earthquakes in the database", notes = "JSON return format documented here: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php")
-    @PostMapping("/all")
+    @ApiOperation(value = "List all earthquakes in the database", notes = "Earthquakes must have been retreived from USGS by an admin first")
+    @GetMapping("/all")
     public Iterable<EarthquakeFeature> listEarthquakes() {
         log.info("list earthquakes");
 
