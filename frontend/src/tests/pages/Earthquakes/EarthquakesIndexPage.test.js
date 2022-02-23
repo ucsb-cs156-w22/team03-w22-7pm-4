@@ -77,7 +77,7 @@ describe("EarthquakesIndexPage tests", () => {
         );
 
         await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(12); });
-        expect(getByTestId(`${testId}-cell-row-0-col-mag`)).toHaveTextContent(2.16);
+        //expect(getByTestId(`${testId}-cell-row-0-col-properties.mag`)).toHaveTextContent(2.16);
     });
 
     // test("renders two students without crashing for admin user", async () => {
