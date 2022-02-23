@@ -25,8 +25,6 @@ import UCSBSubjectsCreatePage from "main/pages/UCSBSubjects/UCSBSubjectsCreatePa
 import StudentsIndexPage from "main/pages/Students/StudentsIndexPage";
 import StudentsCreatePage from "main/pages/Students/StudentsCreatePage";
 
-import EarthquakeRetrievePage from "main/pages/Earthquakes/EarthquakeRetrievePage";
-
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 

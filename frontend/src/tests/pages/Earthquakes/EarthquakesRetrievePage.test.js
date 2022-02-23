@@ -8,6 +8,9 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 
+import { earthquakesFixtures } from "fixtures/earthquakesFixtures";
+
+
 
 describe("EarthquakesRetrievePage tests", () => {
 
@@ -24,6 +27,23 @@ describe("EarthquakesRetrievePage tests", () => {
                 </MemoryRouter>
             </QueryClientProvider>
         );
+    });
+    test("renders one Earthquake without crashing for regular user", async () => {
+        setupUserOnly();
+        const queryClient = new QueryClient();
+        axiosMock.onGet("/api/Earthquakes/retrieve").reply(200, earthquakesFixtures.oneEarthquake);
+
+        const { getByTestId } = render(
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <EarthquakesRetrievePage />
+                </MemoryRouter>
+            </QueryClientProvider>
+        );
+
+       // await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"); });
+        //expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2")
+        //expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
     });
 
 });

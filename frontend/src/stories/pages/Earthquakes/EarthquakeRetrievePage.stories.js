@@ -1,14 +1,14 @@
 
 import React from 'react';
 
-import EarthquakeRetrievePage from "main/pages/Earthquakes/EarthquakeRetrievePage";
+import EarthquakesRetrievePage from "main/pages/Earthquakes/EarthquakesRetrievePage";
 
 export default {
     title: 'pages/Earthquakes/EarthquakeRetrievePage',
-    component: EarthquakeRetrievePage
+    component: EarthquakesRetrievePage
 };
 
-const Template = () => <EarthquakeRetrievePage />;
+const Template = () => <EarthquakesRetrievePage />;
 
 export const Default = Template.bind({});
 
