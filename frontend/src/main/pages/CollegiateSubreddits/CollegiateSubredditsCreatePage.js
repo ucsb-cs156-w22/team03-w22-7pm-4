@@ -10,7 +10,7 @@ export default function CollegiateSubredditsCreatePage() {
     url: "/api/collegiateSubreddits/post",
     method: "POST",
     params: {
-      name: collegiateSubreddit.quarterYYYYQ,
+      name: collegiateSubreddit.name,
       location: collegiateSubreddit.location,
       subreddit: collegiateSubreddit.subreddit
     }
