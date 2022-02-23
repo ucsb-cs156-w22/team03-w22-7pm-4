@@ -98,7 +98,7 @@ describe("CollegiateSubredditForm tests", () => {
 
         const nameField = getByTestId("CollegiateSubredditForm-name");
         const locationField = getByTestId("CollegiateSubredditForm-location");
-        const subredditField = getByTestId("");
+        const subredditField = getByTestId("CollegiateSubredditForm-subreddit");
         const submitButton = getByTestId("CollegiateSubredditForm-submit");
 
         fireEvent.change(nameField, { target: { value: 'UC Santa Barbara' } });

@@ -34,7 +34,7 @@ export default function CollegiateSubredditsCreatePage() {
   }
 
   if (isSuccess) {
-    return <Navigate to="/collegiateSubreddits/list" />
+    return <Navigate to="/collegiatesubreddits/list" />
   }
 
   return (

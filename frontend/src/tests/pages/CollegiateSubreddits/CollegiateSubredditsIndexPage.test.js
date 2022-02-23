@@ -1,7 +1,7 @@
 import { render, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
-import CollegiateSubredditsIndexPage from "main/pagesCollegiateSubredditsIndexPage";
+import CollegiateSubredditsIndexPage from "main/pages/CollegiateSubreddits/CollegiateSubredditsIndexPage";
 
 import { apiCurrentUserFixtures }  from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
@@ -33,7 +33,7 @@ describe("CollegiateSubredditsIndexPage tests", () => {
     test("renders without crashing for regular user", () => {
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/apiall").reply(200, []);
+        axiosMock.onGet("/api/collegiateSubreddits/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -47,7 +47,7 @@ describe("CollegiateSubredditsIndexPage tests", () => {
     test("renders without crashing for admin user", () => {
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/apiall").reply(200, []);
+        axiosMock.onGet("/api/collegiateSubreddits/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -63,7 +63,7 @@ describe("CollegiateSubredditsIndexPage tests", () => {
     test("renders three subreddits without crashing for regular user", async () => {
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/apiall").reply(200, collegiateSubredditsFixtures.threeSubreddits);
+        axiosMock.onGet("/api/collegiateSubreddits/all").reply(200, collegiateSubredditsFixtures.threeSubreddits);
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -81,7 +81,7 @@ describe("CollegiateSubredditsIndexPage tests", () => {
     test("renders three subreddits without crashing for admin", async () => {
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/apiall").reply(200, collegiateSubredditsFixtures.threeSubreddits);
+        axiosMock.onGet("/api/collegiateSubreddits/all").reply(200, collegiateSubredditsFixtures.threeSubreddits);
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -100,7 +100,7 @@ describe("CollegiateSubredditsIndexPage tests", () => {
         setupUserOnly();
 
         const queryClient = new QueryClient();
-        axiosMock.onGet("/apiall").timeout();
+        axiosMock.onGet("/api/collegiateSubreddits/all").timeout();
 
         const restoreConsole = mockConsole();
 
@@ -115,7 +115,7 @@ describe("CollegiateSubredditsIndexPage tests", () => {
         await waitFor(() => { expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(1); });
 
         const errorMessage = console.error.mock.calls[0][0];
-        expect(errorMessage).toMatch("Error communicating with backend via GET on /apiall");
+        expect(errorMessage).toMatch("Error communicating with backend via GET on /api/collegiateSubreddits/all");
         restoreConsole();
 
         expect(queryByTestId(`${testId}-cell-row-0-col-id`)).not.toBeInTheDocument();
