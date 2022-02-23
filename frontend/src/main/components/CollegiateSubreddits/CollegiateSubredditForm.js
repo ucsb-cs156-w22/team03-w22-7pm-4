@@ -18,15 +18,6 @@ function CollegiateSubredditForm({ initialCollegiateSubreddit, submitAction, but
 
     const navigate = useNavigate();
 
-    // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
-    // Note that even this complex regex may still need some tweaks
-
-    // Stryker disable next-line Regex
-    //const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-
-    // Stryker disable next-line all
-    //const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
-
     return (
 
         <Form onSubmit={handleSubmit(submitAction)}>
@@ -51,6 +42,7 @@ function CollegiateSubredditForm({ initialCollegiateSubreddit, submitAction, but
                 <Form.Control
                     data-testid="CollegiateSubredditForm-name"
                     id="name"
+                    isInvalid={Boolean(errors.name)}
                     {...register("name", {
                         required: "Name is required."
                     })}
@@ -66,6 +58,7 @@ function CollegiateSubredditForm({ initialCollegiateSubreddit, submitAction, but
                     data-testid="CollegiateSubredditForm-location"
                     id="location"
                     type="text"
+                    isInvalid={Boolean(errors.location)}
                     {...register("location", {
                         required: "Location is required."
                     })}
@@ -81,6 +74,7 @@ function CollegiateSubredditForm({ initialCollegiateSubreddit, submitAction, but
                     data-testid="CollegiateSubredditForm-subreddit"
                     id="subreddit"
                     type="text"
+                    isInvalid={Boolean(errors.subreddit)}
                     {...register("subreddit", {
                         required: "Subreddit is required."
                     })}
