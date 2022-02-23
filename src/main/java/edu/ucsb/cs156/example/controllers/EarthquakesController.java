@@ -49,6 +49,16 @@ public class EarthquakesController {
          return ResponseEntity.ok().body(savedResults);
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @ApiOperation(value = "List all earthquakes in the database", notes = "JSON return format documented here: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php")
+    @PostMapping("/all")
+    public Iterable<EarthquakeFeature> listEarthquakes() {
+        log.info("list earthquakes");
+
+        // get earthquakes from database
+        return earthquakesCollection.findAll();
+    }
+
     // not yet implemented, this was
 //    @PreAuthorize("hasRole('ROLE_USER')")
 //    @ApiOperation(value = "Get earthquakes a certain distance from UCSB's Storke Tower that are at or above a certain magnitude and add them to the database collection", notes = "JSON return format documented here: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php")
