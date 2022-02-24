@@ -51,7 +51,7 @@ export default function EarthquakesRetrievePage() {
   const onSuccess = (earthquake) => {
     toast(`Searched for earthquakes within: ${earthquake.distanceKm} km and with a magnitude of at least ${earthquake.minMagnitude}`);
   }
-  /*
+  
   useBackend(
     // Stryker disable next-line all : don't test internal caching of React Query
     ["/api/earthquakes/retrieve"],
@@ -59,7 +59,7 @@ export default function EarthquakesRetrievePage() {
     url: "/api/earthquakes/retrieve" },
     []
   );
-  */
+  
   
 
   const mutation = useBackendMutation(
