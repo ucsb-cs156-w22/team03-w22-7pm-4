@@ -142,4 +142,78 @@ public class EarthquakesControllerTests extends ControllerTestCase {
             .andExpect(status().is(403));
   }
 
+  @WithMockUser(roles = { "USER" })
+  @Test
+  public void api_earthquakes_all__user_logged_in__returns_all_earthquakes() throws Exception {
+    // create dummy Earthquake data
+    EarthquakeFeatureProperties props = EarthquakeFeatureProperties.builder()
+            .mag(5.6)
+            .place("testPlace")
+            .time(0x1000000000L)
+            .updated(0x1000000050L)
+            .tz(4)
+            .url("testPropertiesUrl")
+            .detail("testPropertiesDetail")
+            .felt(24)
+            .cdi(2.6)
+            .mmi(5.2)
+            .alert("testPropertiesAlert")
+            .status("testPropertiesStatus")
+            .tsunami(0)
+            .sig(114)
+            .net("testPropertiesNet")
+            .code("testPropertiesCode")
+            .ids("testPropertiesIds")
+            .sources("testPropertiesSources")
+            .types("testPropertiesTypes")
+            .nst(79)
+            .dmin(0.0207)
+            .rms(0.4)
+            .gap(65)
+            .magType("testPropertiesMagType")
+            .type("testPropertiesType")
+            .title("testPropertiesTitle")
+            .build();
+
+    EarthquakeFeatureGeometry geometry = EarthquakeFeatureGeometry.builder()
+            .type("Point")
+            .coordinates(List.of(0.0, 1.0, 2.0))
+            .id("testGeometryId")
+            .build();
+
+    EarthquakeFeature quake1 = EarthquakeFeature.builder()
+            ._id("")
+            .id("testQuakeId1")
+            .type("Feature")
+            .geometry(geometry)
+            .properties(props)
+            .build();
+
+    EarthquakeFeature quake2 = EarthquakeFeature.builder()
+            ._id("")
+            .id("testQuakeId2")
+            .type("Feature")
+            .geometry(geometry)
+            .properties(props)
+            .build();
+
+    List<EarthquakeFeature> quakeList = new ArrayList<>();
+    quakeList.add(quake1); quakeList.add(quake2);
+
+    when(earthquakesCollection.findAll()).thenReturn(quakeList);
+
+    MvcResult response = mockMvc.perform(get("/api/earthquakes/all"))
+            .andExpect(status().isOk()).andReturn();
+
+    verify(earthquakesCollection, times(1)).findAll();
+    String expectedJson = mapper.writeValueAsString(quakeList);
+    String responseJson = response.getResponse().getContentAsString();
+    assertEquals(expectedJson, responseJson);
+  }
+
+  @Test
+  public void api_earthquakes_all__logged_out__returns_403() throws Exception {
+    mockMvc.perform(get("/api/earthquakes/all")).andExpect(status().is(403));
+  }
+
 }
