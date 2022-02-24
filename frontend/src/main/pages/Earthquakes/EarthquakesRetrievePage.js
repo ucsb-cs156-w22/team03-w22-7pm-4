@@ -27,6 +27,7 @@ export default function EarthquakesRetrievePage() {
   )
 }
 */
+
 import React from 'react'
 
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
@@ -38,25 +39,28 @@ import { toast } from "react-toastify";
 import { useBackend } from 'main/utils/useBackend';
 
 export default function EarthquakesRetrievePage() {
-
   const objectToAxiosParams = (earthquake) => ({
     url: "/api/earthquakes/retrieve",
     method: "POST",
     params: {
-        distance: earthquake.distanceKm,
-        min_magnitude: earthquake.minMagnitude
+      distance: earthquake.distanceKm,
+      magnitude: earthquake.minMagnitude
     }
   });
 
   const onSuccess = (earthquake) => {
     toast(`Searched for earthquakes within: ${earthquake.distanceKm} km and with a magnitude of at least ${earthquake.minMagnitude}`);
   }
+  /*
   useBackend(
     // Stryker disable next-line all : don't test internal caching of React Query
     ["/api/earthquakes/retrieve"],
-    { method: "POST", url: "/api/earthquakes/retrieve" },
+    { method: "POST", 
+    url: "/api/earthquakes/retrieve" },
     []
   );
+  */
+  
 
   const mutation = useBackendMutation(
     objectToAxiosParams,
@@ -72,7 +76,7 @@ export default function EarthquakesRetrievePage() {
   }
 
   if (isSuccess) {
-    return <Navigate to="/earthquakes/retrieve" />
+    return <Navigate to="/earthquakes/list" />
   }
   
 

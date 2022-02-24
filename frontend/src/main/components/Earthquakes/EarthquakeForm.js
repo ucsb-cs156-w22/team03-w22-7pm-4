@@ -27,7 +27,7 @@ function EarthquakeForm({submitAction, buttonLabel="Retrieve" }) {
                     data-testid="EarthquakeForm-distance"
                     id="distance"
                     type="text"
-                    //isInvalid={Boolean(errors.distance)}
+                    isInvalid={Boolean(errors.distance)}
                     //need to check that distance is a number below
                     {...register("distance", {required: true})}
                 />
