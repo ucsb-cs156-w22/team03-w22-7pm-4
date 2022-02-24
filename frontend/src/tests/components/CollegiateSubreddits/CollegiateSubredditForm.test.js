@@ -51,7 +51,7 @@ describe("CollegiateSubredditForm tests", () => {
         const idField = getByTestId("CollegiateSubredditForm-id");
         const nameField = getByTestId("CollegiateSubredditForm-name");
         const locationField = getByTestId("CollegiateSubredditForm-location");
-        const subredditField = getByTestId("CollegiateSubredditForm-subreddit");
+        const subredditField = getByTestId("");
         const submitButton = getByTestId("CollegiateSubredditForm-submit");
 
         fireEvent.change(idField, { target: { value: 'bad-input' } });

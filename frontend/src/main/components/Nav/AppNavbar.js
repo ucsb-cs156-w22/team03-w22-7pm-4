@@ -98,10 +98,10 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                 hasRole(currentUser, "ROLE_USER") && (
 
                   <NavDropdown title="CollegiateSubreddits" id="appnavbar-collegiatesubreddits-dropdown" data-testid="appnavbar-collegiatesubreddits-dropdown" >
-                    <NavDropdown.Item href="/collegiatesubreddits/list" data-testid="appnavbar-collegiatesubreddits-list">List</NavDropdown.Item>
+                    <NavDropdown.Item href="/collegiateSubreddits/list" data-testid="appnavbar-collegiatesubreddits-list">List</NavDropdown.Item>
                     {
                       hasRole(currentUser, "ROLE_ADMIN") && (
-                        <NavDropdown.Item href="/collegiatesubreddits/create" data-testid="appnavbar-collegiatesubreddits-create">Create</NavDropdown.Item>
+                        <NavDropdown.Item href="/collegiateSubreddits/create" data-testid="appnavbar-collegiatesubreddits-create">Create</NavDropdown.Item>
                       )
                     }
                   </NavDropdown>
@@ -117,7 +117,8 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                     <NavDropdown.Item href="/earthquakes/list" data-testid="appnavbar-earthquakes-list">List</NavDropdown.Item>
                     {
                       hasRole(currentUser, "ROLE_ADMIN") && (
-                        <NavDropdown.Item href="/earthquakes/retrieve" data-testid="appnavbar-earthquakes-create">Create</NavDropdown.Item>
+                        <NavDropdown.Item href="/earthquakes/retrieve" data-testid="appnavbar-earthquakes-retrieve">Retrieve</NavDropdown.Item>
+                        
                       )
                     }
                   </NavDropdown>
