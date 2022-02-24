@@ -3,7 +3,7 @@ import EarthquakesRetrievePage from "main/pages/Earthquakes/EarthquakesRetrieveP
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
-import { apiCurrentUserFixtures }  from "fixtures/currentUserFixtures";
+import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
@@ -14,7 +14,7 @@ import { earthquakesFixtures } from "fixtures/earthquakesFixtures";
 
 describe("EarthquakesRetrievePage tests", () => {
 
-    const axiosMock =new AxiosMockAdapter(axios);
+    const axiosMock = new AxiosMockAdapter(axios);
     axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
     axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
 
@@ -29,9 +29,9 @@ describe("EarthquakesRetrievePage tests", () => {
         );
     });
     test("renders one Earthquake without crashing for regular user", async () => {
-        setupUserOnly();
+        //setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/Earthquakes/retrieve").reply(200, earthquakesFixtures.oneEarthquake);
+        axiosMock.onGet("/api/earthquakes/retrieve").reply(200, earthquakesFixtures.oneEarthquake);
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -42,8 +42,4 @@ describe("EarthquakesRetrievePage tests", () => {
         );
 
     });
-
 });
-
-
-s

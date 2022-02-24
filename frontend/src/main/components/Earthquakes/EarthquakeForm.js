@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 
-function EarthquakeForm({submitAction, buttonLabel="Retrieve" }) {
+function EarthquakeForm({initialEarthquakes, submitAction, buttonLabel="Retrieve" }) {
     //distance in km from Storke Tower
     //minimum magnitude of an earthquake
 
@@ -14,43 +14,43 @@ function EarthquakeForm({submitAction, buttonLabel="Retrieve" }) {
         formState: { errors },
         handleSubmit,
     } = useForm(
-        { defaultValues: {}, }
+        { defaultValues: initialEarthquakes || {}, }
     );
     const navigate = useNavigate();
     return (
 
         <Form onSubmit={handleSubmit(submitAction)}>
-            
+            {initialEarthquakes}
             <Form.Group className="mb-3" >
                 <Form.Label htmlFor="distance">distance in km from Storke Tower</Form.Label>
                 <Form.Control
                     data-testid="EarthquakeForm-distance"
-                    id="distance"
+                    id="distanceKm"
                     type="text"
-                    isInvalid={Boolean(errors.distance)}
+                    isInvalid={Boolean(errors.distanceKm)}
                     //need to check that distance is a number below
-                    {...register("distance", {required: true})}
+                    {...register("distanceKm", {required: 'distanceKm is required.'})}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.distance && 'distance is required.'}
+                    {errors.distanceKm?.message}
                     
                 </Form.Control.Feedback>
             </Form.Group>
         
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="min_magnitude">minimum magnitude of an earthquake</Form.Label>
+                <Form.Label htmlFor="minMagnitude">minimum magnitude of an earthquake</Form.Label>
                 <Form.Control
-                    data-testid="EarthquakeForm-min_magnitude"
-                    id="min_magnitude"
+                    data-testid="EarthquakeForm-minMagnitude"
+                    id="minMagnitude"
                     type="text"
-                    isInvalid={Boolean(errors.min_magnitude)}
-                    {...register("min_magnitude", {
-                        required: "min_magnitude is required."
+                    isInvalid={Boolean(errors.minMagnitude)}
+                    {...register("minMagnitude", {
+                        required: "minMagnitude is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.min_magnitude?.message}
+                    {errors.minMagnitude?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
