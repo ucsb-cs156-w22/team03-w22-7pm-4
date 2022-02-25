@@ -21,11 +21,6 @@ describe("UCSBSubjectForm tests", () => {
             </Router>
         );
         await waitFor(() => expect(getByText(/Subject Code/)).toBeInTheDocument());
-        // await waitFor(() => expect(getByText(/Subject Translation/)).toBeInTheDocument());
-        // await waitFor(() => expect(getByText(/Dept Code/)).toBeInTheDocument());
-        // await waitFor(() => expect(getByText(/College Code/)).toBeInTheDocument());
-        // await waitFor(() => expect(getByText(/Related Dept Code/)).toBeInTheDocument());
-        // await waitFor(() => expect(getByText(/Inactive/)).toBeInTheDocument());
         await waitFor(() => expect(getByText(/Create/)).toBeInTheDocument());
     });
 
@@ -55,11 +50,11 @@ describe("UCSBSubjectForm tests", () => {
         fireEvent.click(submitButton);
 
         await waitFor(() => expect(getByText(/Subject Code is required./)).toBeInTheDocument());
-        // expect(getByText(/Subject Translation is required./)).toBeInTheDocument();
-        // expect(getByText(/College Code is required./)).toBeInTheDocument();
-        // expect(getByText(/Dept Code is required./)).toBeInTheDocument();
-        // expect(getByText(/Related Dept Code is required./)).toBeInTheDocument();
-        // expect(getByText(/Inactive is required./)).toBeInTheDocument();
+        expect(getByText(/Subject Translation is required./)).toBeInTheDocument();
+        expect(getByText(/College Code is required./)).toBeInTheDocument();
+        expect(getByText(/Dept Code is required./)).toBeInTheDocument();
+        expect(getByText(/Related dept Code is required./)).toBeInTheDocument();
+        expect(getByText(/Inactive is required/)).toBeInTheDocument();
 
     });
 
@@ -97,9 +92,26 @@ describe("UCSBSubjectForm tests", () => {
         expect(queryByText(/Subject Translation is required./)).not.toBeInTheDocument();
         expect(queryByText(/Dept Code is required./)).not.toBeInTheDocument();
         expect(queryByText(/College Code is required./)).not.toBeInTheDocument();
-        expect(queryByText(/Related Dept Code is required./)).not.toBeInTheDocument();
-        expect(queryByText(/Inactive is required./)).not.toBeInTheDocument();
+        expect(queryByText(/Related dept Code is required./)).not.toBeInTheDocument();
+        expect(queryByText(/Inactive is required and must be either true or false./)).not.toBeInTheDocument();
 
+    });
+
+    test("Correct Error messsages on bad input", async () => {
+
+        const { getByTestId, getByText } = render(
+            <Router  >
+                <UCSBSubjectForm />
+            </Router>
+        );
+        await waitFor(() => expect(getByTestId("UCSBSubjectForm-inactive")).toBeInTheDocument());
+        const inactiveField = getByTestId("UCSBSubjectForm-inactive");
+        const submitButton = getByTestId("UCSBSubjectForm-submit");
+
+        fireEvent.change(inactiveField, { target: { value: 'bad-input' } });
+        fireEvent.click(submitButton);
+
+        await waitFor(() => expect(getByText(/Inactive is required and must be either true or false./)).toBeInTheDocument());
     });
 
 
