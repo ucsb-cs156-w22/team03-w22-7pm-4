@@ -59,12 +59,17 @@ public class EarthquakesController {
         return earthquakesCollection.findAll();
     }
 
-    // not yet implemented, this was
-//    @PreAuthorize("hasRole('ROLE_USER')")
-//    @ApiOperation(value = "Get earthquakes a certain distance from UCSB's Storke Tower that are at or above a certain magnitude and add them to the database collection", notes = "JSON return format documented here: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php")
-//    @GetMapping("/all")
-//    public ResponseEntity<String> getEarthquakes() throws JsonProcessingException {
-//        return ResponseEntity.ok().body(result);
-//    }
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @ApiOperation(value = "Purges all earthquakes from MongoDB collection")
+    @PostMapping("/purge")
+    public ResponseEntity<String> purgeEarthquakes() throws JsonProcessingException {
+        log.info("purgeEarthquakes");
+
+        long numDeleted = earthquakesCollection.count();
+
+        earthquakesCollection.deleteAll();
+
+        return ResponseEntity.ok().body(String.format("%d earthquakes purged", numDeleted));
+    }
 
 }
