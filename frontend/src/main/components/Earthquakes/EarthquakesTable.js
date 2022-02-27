@@ -10,23 +10,23 @@ export default function EarthquakesTable({ earthquakes, currentUser }) {
         },
         {
             Header: 'Title',
-            accessor: 'title',
+            accessor: 'properties.title',
         },
         {
             Header: 'Magnitude',
-            accessor: 'mag',
+            accessor: 'properties.mag',
         },
         {
             Header: 'Place',
-            accessor: 'place',
+            accessor: 'properties.place',
         },
         {
             Header: 'Time',
-            accessor: 'time',
+            accessor: 'properties.time',
         }
     ];
 
-    // Stryker disable ArrayDeclaration : [columns] and [students] are performance optimization; mutation preserves correctness
+    // Stryker disable ArrayDeclaration : [columns] and [earthquakes] are performance optimization; mutation preserves correctness
     const memoizedColumns = React.useMemo(() => columns, [columns]);
     const memoizedDates = React.useMemo(() => earthquakes, [earthquakes]);
     // Stryker enable ArrayDeclaration
