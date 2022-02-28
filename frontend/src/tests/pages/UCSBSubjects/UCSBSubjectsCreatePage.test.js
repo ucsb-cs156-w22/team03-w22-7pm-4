@@ -107,7 +107,7 @@ describe("UCSBSubjectsCreatePage tests", () => {
             "deptCode": "CMPSC",
             "collegeCode": "COE",
             "relatedDeptCode": "CMPSC",
-            "inactive": false
+            "inactive": "false"
         });
 
         expect(mockToast).toBeCalledWith("New ucsbSubject Created - id: 1 name: CMPSC");
