@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-
+//import Select from 'react-select'
 
 function UCSBSubjectForm({ initialUCSBSubject, submitAction, buttonLabel="Create" }) {
 
@@ -16,8 +16,13 @@ function UCSBSubjectForm({ initialUCSBSubject, submitAction, buttonLabel="Create
     );
     // Stryker enable all
 
+    // const options = [
+    //     { value: true, label: 'True' },
+    //     { value: false, label: 'False' }
+    // ]
     const navigate = useNavigate();
 
+    //const bool_regex = /^(true|false|True|False)$/;
     // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
     // Note that even this complex regex may still need some tweaks
 
@@ -110,18 +115,18 @@ function UCSBSubjectForm({ initialUCSBSubject, submitAction, buttonLabel="Create
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="relDeptCode">Related Dept Code</Form.Label>
+                <Form.Label htmlFor="relatedDeptCode">Related Dept Code</Form.Label>
                 <Form.Control
                     data-testid="UCSBSubjectForm-relDeptCode"
-                    id="relDeptCode"
+                    id="relatedDeptCode"
                     type="text"
-                    isInvalid={Boolean(errors.relDeptCode)}
-                    {...register("relDeptCode", 
-                        { required: "Related Dept Code is required."
+                    isInvalid={Boolean(errors.relatedDeptCode)}
+                    {...register("relatedDeptCode", 
+                        { required: "Related dept Code is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.relDeptCode?.message}
+                    {errors.relatedDeptCode?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
@@ -132,14 +137,23 @@ function UCSBSubjectForm({ initialUCSBSubject, submitAction, buttonLabel="Create
                     id="inactive"
                     type="text"
                     isInvalid={Boolean(errors.inactive)}
-                    {...register("inactive", 
-                        { required: "Inactive is required."
-                    })}
+                    {...register("inactive", { required: true, validate: v=>v.toLowerCase() === 'true' || v.toLowerCase() === 'false' })}
                 />
+                <Form.Control.Feedback type="invalid">
+                    {errors.inactive && 'Inactive is required '}
+                    {errors.inactive?.type === 'validate' && 'and must be either true or false.'}
+                </Form.Control.Feedback>
+            </Form.Group>
+
+            {/* <Form.Group className="mb-3" >
+                <Form.Label htmlFor="inactive">Inactive</Form.Label>
+                    <Select 
+                        options = {options} 
+                    />
                 <Form.Control.Feedback type="invalid">
                     {errors.inactive?.message}
                 </Form.Control.Feedback>
-            </Form.Group>
+            </Form.Group> */}
 
             <Button
                 type="submit"
