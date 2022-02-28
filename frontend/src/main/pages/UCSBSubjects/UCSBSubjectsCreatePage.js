@@ -14,7 +14,8 @@ export default function UCSBSubjectsCreatePage() {
       deptCode: ucsbSubject.deptCode,
       collegeCode: ucsbSubject.collegeCode,
       relatedDeptCode: ucsbSubject.relatedDeptCode,
-      inactive: ucsbSubject.inactive.toLowerCase()
+      // Stryker disable next-line all : Prevents stryker from changing string or setting this to a fixed bool value
+      inactive: ucsbSubject.inactive.toLowerCase() === 'true'
     }
   });
 

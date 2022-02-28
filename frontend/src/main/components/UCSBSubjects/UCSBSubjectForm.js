@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-//import Select from 'react-select'
 
 function UCSBSubjectForm({ initialUCSBSubject, submitAction, buttonLabel="Create" }) {
 
@@ -16,10 +15,6 @@ function UCSBSubjectForm({ initialUCSBSubject, submitAction, buttonLabel="Create
     );
     // Stryker enable all
 
-    // const options = [
-    //     { value: true, label: 'True' },
-    //     { value: false, label: 'False' }
-    // ]
     const navigate = useNavigate();
 
     //const bool_regex = /^(true|false|True|False)$/;
@@ -144,16 +139,6 @@ function UCSBSubjectForm({ initialUCSBSubject, submitAction, buttonLabel="Create
                     {errors.inactive?.type === 'validate' && 'and must be either true or false.'}
                 </Form.Control.Feedback>
             </Form.Group>
-
-            {/* <Form.Group className="mb-3" >
-                <Form.Label htmlFor="inactive">Inactive</Form.Label>
-                    <Select 
-                        options = {options} 
-                    />
-                <Form.Control.Feedback type="invalid">
-                    {errors.inactive?.message}
-                </Form.Control.Feedback>
-            </Form.Group> */}
 
             <Button
                 type="submit"
